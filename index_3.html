@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CM Launch Lab — Carla Melara</title>
+<meta name="description" content="CM Launch Lab helps product teams launch with evidence and helps professionals build careers they own.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #1a9fd4;
+  --blue-dark: #1585b3;
+  --charcoal: #1a1a1a;
+  --mid-grey: #4a4a4a;
+  --dim-grey: #8a8a8a;
+  --warm-white: #fafaf8;
+  --blue-tint: #eef4f7;
+  --gold: #c9a84c;
+  --gold-light: #f5f0e8;
+  --green: #2a9d5c;
+  --border: #e4e2de;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Jost', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --max: 1080px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--warm-white);
+  color: var(--mid-grey);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim-grey);
+}
+
+.label-blue {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.label-gold {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--charcoal);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.4rem, 2.5vw, 1.9rem); }
+h4 { font-size: 1.2rem; }
+
+p { color: var(--mid-grey); line-height: 1.75; }
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 13px 28px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: #fff;
+  border: 1.5px solid var(--blue);
+}
+.btn-primary:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--charcoal);
+  border: 1.5px solid var(--charcoal);
+}
+.btn-outline:hover { background: var(--charcoal); color: #fff; }
+
+.btn-gold {
+  background: var(--gold);
+  color: #fff;
+  border: 1.5px solid var(--gold);
+}
+.btn-gold:hover { background: #b8964a; border-color: #b8964a; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--blue);
+  border: 1.5px solid var(--blue);
+}
+.btn-ghost:hover { background: var(--blue); color: #fff; }
+
+hr.rule {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--warm-white);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  font-weight: 500;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  color: var(--mid-grey);
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--charcoal); }
+
+.nav-cta {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 18px;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 2px;
+  transition: background 0.15s;
+}
+.nav-cta:hover { background: var(--blue-dark); color: #fff; }
+
+.nav-mobile-toggle { display: none; cursor: pointer; background: none; border: none; }
+
+/* ── HERO ── */
+.hero {
+  padding: 7rem 2rem 5rem;
+  text-align: center;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  max-width: 820px;
+  margin: 0 auto 1.5rem;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--blue);
+}
+
+.hero-sub {
+  max-width: 580px;
+  margin: 0 auto 3.5rem;
+  font-size: 1.05rem;
+  color: var(--mid-grey);
+}
+
+/* ── AUDIENCE SPLIT ── */
+.audience-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.audience-card {
+  background: var(--warm-white);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: background 0.2s;
+}
+
+.audience-card:hover { background: #f3f1ee; }
+
+.audience-card-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim-grey);
+}
+
+.audience-card h3 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.audience-card p {
+  font-size: 0.9rem;
+  color: var(--dim-grey);
+  flex: 1;
+}
+
+/* ── SECTION BASE ── */
+.section {
+  padding: 6rem 0;
+}
+
+.section-header {
+  max-width: 680px;
+  margin-bottom: 4rem;
+}
+
+.section-header .label { margin-bottom: 1rem; display: block; }
+.section-header h2 { margin-bottom: 1rem; }
+.section-header p { font-size: 1.05rem; }
+
+/* ── PROBLEM ── */
+.problem-section {
+  background: var(--charcoal);
+  padding: 5rem 0;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.problem-section h2 { color: #fff; }
+.problem-section .label { color: rgba(255,255,255,0.4); }
+
+.problem-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.problem-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255,255,255,0.05);
+  border-left: 2px solid rgba(255,255,255,0.12);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+}
+
+.problem-list li::before {
+  content: '→';
+  color: var(--blue);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.outcome-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.outcome-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+}
+
+.outcome-list li::before {
+  content: '✓';
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* ── SERVICES ── */
+.services-section { background: var(--warm-white); }
+
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.tier-card {
+  background: var(--warm-white);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+}
+
+.tier-card.featured {
+  background: var(--blue-tint);
+}
+
+.tier-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 2px;
+  margin-bottom: 0.25rem;
+}
+
+.tier-number {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--dim-grey);
+  letter-spacing: 0.08em;
+}
+
+.tier-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0;
+}
+
+.tier-price {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--blue);
+  letter-spacing: 0.04em;
+}
+
+.tier-description {
+  font-size: 0.9rem;
+  color: var(--mid-grey);
+  line-height: 1.65;
+}
+
+.tier-includes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.tier-includes li {
+  font-size: 0.85rem;
+  color: var(--mid-grey);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  line-height: 1.5;
+}
+
+.tier-includes li::before {
+  content: '—';
+  color: var(--dim-grey);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* ── POWER HOUR ── */
+.power-hour {
+  background: var(--gold-light);
+  border: 1px solid #e8dcc5;
+  border-radius: 4px;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.power-hour-text h4 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.power-hour-text p {
+  font-size: 0.9rem;
+  color: var(--mid-grey);
+  max-width: 480px;
+}
+
+.power-hour-price {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--gold);
+  margin-top: 0.5rem;
+}
+
+/* ── GUARANTEE ── */
+.guarantee-bar {
+  background: var(--blue-tint);
+  border: 1px solid #d0e8f0;
+  border-radius: 4px;
+  padding: 1.75rem 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.guarantee-icon {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--blue);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.guarantee-bar p {
+  font-size: 0.9rem;
+  color: var(--mid-grey);
+}
+
+.guarantee-bar strong {
+  font-weight: 500;
+  color: var(--charcoal);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+
+
+/* ── CTA BAND ── */
+.cta-band {
+  background: var(--blue);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.cta-band h2 {
+  color: #fff;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  margin-bottom: 0.75rem;
+}
+
+.cta-band p {
+  color: rgba(255,255,255,0.75);
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  font-size: 0.95rem;
+}
+
+.btn-white {
+  background: #fff;
+  color: var(--blue);
+  border: 1.5px solid #fff;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 13px 28px;
+  border-radius: 2px;
+  display: inline-block;
+  transition: all 0.2s;
+}
+.btn-white:hover { background: transparent; color: #fff; }
+
+/* ── INDIVIDUALS ── */
+.individuals-section {
+  padding: 6rem 0;
+  background: var(--warm-white);
+}
+
+.individuals-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.coming-soon-card {
+  background: var(--gold-light);
+  border: 1px solid #e8dcc5;
+  border-radius: 4px;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.coming-soon-card h3 {
+  font-size: 2rem;
+}
+
+.coming-soon-card p {
+  font-size: 0.9rem;
+  color: var(--mid-grey);
+}
+
+.coming-soon-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0.5rem 0;
+}
+
+.coming-soon-features li {
+  font-size: 0.88rem;
+  color: var(--mid-grey);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.coming-soon-features li::before {
+  content: '→';
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* ── ABOUT ── */
+.about-section {
+  background: var(--blue-tint);
+  padding: 6rem 0;
+  border-top: 1px solid #d0e8f0;
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.about-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  background: var(--warm-white);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--charcoal);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim-grey);
+}
+
+.about-text p {
+  margin-bottom: 1.25rem;
+  font-size: 0.975rem;
+}
+
+.about-availability {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.88rem;
+  color: var(--mid-grey);
+  line-height: 1.65;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--charcoal);
+  padding: 3rem 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-logo {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.footer-links a {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+.footer-copy {
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  font-family: var(--font-mono);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: block; }
+
+  .audience-split { grid-template-columns: 1fr; }
+
+  .problem-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+  .tiers-grid { grid-template-columns: 1fr; }
+
+  .webinar-inner { grid-template-columns: 1fr; }
+
+  .individuals-inner { grid-template-columns: 1fr; gap: 3rem; }
+
+  .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+
+  .power-hour { flex-direction: column; gap: 1.5rem; }
+  .power-hour .btn-gold { align-self: flex-start; }
+}
+
+@media (max-width: 540px) {
+  .hero { padding: 4rem 1.5rem 3rem; }
+  .container { padding: 0 1.5rem; }
+  .section { padding: 4rem 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">CM Launch Lab</a>
+    <ul class="nav-links">
+      <li><a href="#businesses">For Teams</a></li>
+      <li><a href="#individuals">For Individuals</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="https://cal.com/cmlaunchlab/power-hour-strategy-call" target="_blank" class="nav-cta">Book a Power Hour</a></li>
+    </ul>
+    <button class="nav-mobile-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-eyebrow label">Evidence. Clarity. Execution.</span>
+  <h1>Stop building on<br><em>assumptions.</em></h1>
+  <p class="hero-sub">CM Launch Lab helps product teams launch with evidence — and helps professionals build careers they own.</p>
+
+  <div class="audience-split">
+    <a href="#businesses" class="audience-card">
+      <span class="audience-card-label">For Teams &amp; Businesses</span>
+      <h3>Reduce launch risk before it becomes rework.</h3>
+      <p>VOC research and strategic beta testing that gives your team real user signal before launch day.</p>
+      <span class="btn btn-outline" style="align-self:flex-start; font-size:12px; padding:10px 20px;">See Services →</span>
+    </a>
+    <a href="#individuals" class="audience-card">
+      <span class="audience-card-label">For Individuals</span>
+      <h3>Build a career path you actually own.</h3>
+      <p>Tools and coaching for career changers and product-minded professionals ready to move with intention.</p>
+      <span class="btn btn-ghost" style="align-self:flex-start; font-size:12px; padding:10px 20px;">Get Early Access →</span>
+    </a>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- PROBLEM -->
+<section class="problem-section" id="businesses">
+  <div class="container">
+    <div class="problem-grid">
+      <div>
+        <span class="label" style="color:rgba(255,255,255,0.35); display:block; margin-bottom:1rem;">The Problem</span>
+        <h2 style="color:#fff;">Your team ships on time.<br>But are you building<br>the <em>right</em> thing?</h2>
+        <p style="color:rgba(255,255,255,0.5); margin-top:1.25rem; font-size:0.95rem;">Most teams measure delivery speed. Fewer measure whether they built what users actually need. That gap is where rework, launch stress, and stakeholder mistrust appear.</p>
+      </div>
+      <div>
+        <p style="color:rgba(255,255,255,0.35); font-size:11px; font-family:'DM Mono',monospace; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">What it looks like now</p>
+        <ul class="problem-list">
+          <li>A feature ships and generates a flood of support tickets.</li>
+          <li>Engineering pulls back into fixes that could have been caught earlier.</li>
+          <li>The roadmap shifts because the original assumptions were off.</li>
+          <li>Stakeholders lose confidence because launch results feel unpredictable.</li>
+        </ul>
+        <p style="color:rgba(255,255,255,0.35); font-size:11px; font-family:'DM Mono',monospace; letter-spacing:0.1em; text-transform:uppercase; margin:1.5rem 0 0.75rem;">What changes with user signal</p>
+        <ul class="outcome-list">
+          <li>You know what real users are trying to do before launch.</li>
+          <li>You catch friction in beta before it becomes public pain.</li>
+          <li>You go into planning meetings with evidence, not opinions.</li>
+          <li>You make the speed you already have count.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="label-blue">Services</span>
+      <h2>Two services built to work <em>together.</em></h2>
+      <p>Structured VOC research and strategic beta testing — the two areas that most directly reduce launch rework.</p>
+    </div>
+
+    <div class="tiers-grid">
+      <div class="tier-card">
+        <div>
+          <span class="tier-number">01</span>
+          <h3>Signal</h3>
+          <span class="tier-price">Starting at $4,500</span>
+        </div>
+        <p class="tier-description">A focused VOC sprint for teams that need clarity quickly. Three to five structured user interviews, synthesized into decision-ready insight.</p>
+        <ul class="tier-includes">
+          <li>Interview guide design around your launch questions</li>
+          <li>3–5 structured 1:1 user interviews</li>
+          <li>Theme synthesis and insight report</li>
+          <li>60-minute debrief call with your team</li>
+          <li>Two-week delivery sprint</li>
+        </ul>
+        <a href="https://carla-i-melara.systeme.io/9d1e2424" target="_blank" class="btn btn-outline" style="align-self:flex-start; font-size:12px; padding:10px 20px; margin-top:auto;">Get the Free Checklist</a>
+      </div>
+
+      <div class="tier-card featured">
+        <div>
+          <span class="tier-badge">Primary Offer</span>
+          <span class="tier-number">02</span>
+          <h3>Validate</h3>
+          <span class="tier-price">Starting at $9,500</span>
+        </div>
+        <p class="tier-description">VOC research plus strategic beta testing for teams with an upcoming launch that needs more confidence and less guesswork.</p>
+        <ul class="tier-includes">
+          <li>Structured VOC research</li>
+          <li>Beta program design and feedback loops</li>
+          <li>Participant recruitment guidance</li>
+          <li>Feedback analysis and risk themes</li>
+          <li>Stakeholder-ready launch readiness insight</li>
+        </ul>
+        <a href="https://carla-i-melara.systeme.io/9d1e2424" target="_blank" class="btn btn-primary" style="align-self:flex-start; font-size:12px; padding:10px 20px; margin-top:auto;">Get the Free Checklist</a>
+      </div>
+
+      <div class="tier-card">
+        <div>
+          <span class="tier-number">03</span>
+          <h3>Launch Ready</h3>
+          <span class="tier-price">Starting at $22,000</span>
+        </div>
+        <p class="tier-description">The full program for teams that want VOC research, beta insight, stakeholder reporting, and launch debrief support in one engagement.</p>
+        <ul class="tier-includes">
+          <li>Full VOC research and beta testing</li>
+          <li>Stakeholder-ready reporting</li>
+          <li>Launch debrief and recommendations</li>
+          <li>Direct access throughout the engagement</li>
+          <li>Best for 3–6 month launch cycles</li>
+        </ul>
+        <a href="https://cal.com/cmlaunchlab/power-hour-strategy-call" target="_blank" class="btn btn-outline" style="align-self:flex-start; font-size:12px; padding:10px 20px; margin-top:auto;">Book a Power Hour</a>
+      </div>
+    </div>
+
+    <!-- POWER HOUR -->
+    <div class="power-hour">
+      <div class="power-hour-text">
+        <span class="label-gold" style="display:block; margin-bottom:0.5rem;">Not ready for a full sprint?</span>
+        <h4>Power Hour Strategy Call</h4>
+        <p>One focused hour. Bring your launch question, your stakeholder challenge, or your roadmap decision. You leave with a clear next step.</p>
+        <span class="power-hour-price">$250 · 60 minutes · Direct with Carla</span>
+        <p style="font-size:0.82rem; color:var(--dim-grey); margin-top:0.5rem;">If you move forward with a Signal, Validate, or Launch Ready engagement, your Power Hour fee is credited toward your project.</p>
+      </div>
+      <a href="https://cal.com/cmlaunchlab/power-hour-strategy-call" target="_blank" class="btn btn-gold">Book a Power Hour</a>
+    </div>
+
+    <!-- GUARANTEE -->
+    <div class="guarantee-bar">
+      <div class="guarantee-icon">§</div>
+      <div>
+        <strong>Three validated user insights — or a full refund.</strong>
+        <p>Every engagement is scoped around clear evidence, clear deliverables, and a short timeline. You know exactly what you are getting before work begins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Ready to reduce launch risk?</h2>
+    <p>Start with the free checklist, then book a call if you want to talk through your next launch.</p>
+    <a href="https://carla-i-melara.systeme.io/9d1e2424" target="_blank" class="btn-white">Get the Free GTM Checklist</a>
+  </div>
+</section>
+
+<!-- INDIVIDUALS -->
+<section class="individuals-section" id="individuals">
+  <div class="container">
+    <div class="individuals-inner">
+      <div>
+        <span class="label" style="display:block; margin-bottom:1rem;">For Individuals</span>
+        <h2>A career you<br>actually <em>own.</em></h2>
+        <p style="margin-top:1.25rem; font-size:0.975rem;">Tools and coaching for career changers, product-minded professionals, and anyone ready to stop waiting for permission to move.</p>
+        <p style="margin-top:1rem; font-size:0.975rem;">Whether you are pivoting industries, building a consulting practice, or figuring out what your next chapter looks like — this side of CM Launch Lab is being built for you.</p>
+        <p style="margin-top:1.5rem; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.08em; color:var(--dim-grey); text-transform:uppercase;">Launching soon.</p>
+      </div>
+      <div class="coming-soon-card">
+        <span class="label-gold">Early Access</span>
+        <h3>Be the first to know.</h3>
+        <p>Career tools, sprint kits, and coaching resources are in development. Get on the list and be first in the door when they launch.</p>
+        <ul class="coming-soon-features">
+          <li>Career pivot frameworks and tools</li>
+          <li>Sprint kits for career changers</li>
+          <li>1:1 coaching for positioning and next steps</li>
+          <li>Resources for aspiring consultants and founders</li>
+        </ul>
+        <a href="https://carla-i-melara.systeme.io/8cc4e939" target="_blank" class="btn btn-gold" style="align-self:flex-start;">Get Early Access</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div>
+        <span class="label" style="display:block; margin-bottom:1rem;">About</span>
+        <h2>Led by a<br>practitioner.</h2>
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Beta participants managed</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">Years of product &amp; ops experience</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">Direct</span>
+            <span class="stat-label">No junior handoff, ever</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <p>CM Launch Lab is founded and led by Carla Melara — a bilingual Product and Operations Strategist with over 15 years of hands-on experience across SaaS, insurance, and enterprise environments.</p>
+        <p>Her background spans agile product delivery, P&amp;C insurance operations, VOC research, beta program management, and stakeholder alignment. She has worked directly with cross-functional teams to surface user insight, reduce delivery risk, and build toward launches that hold.</p>
+        <p>Every engagement at CM Launch Lab is sprint-based, direct access, and scoped around clear deliverables. You hire a practitioner — not a faceless agency or a layered consulting process.</p>
+        <div class="about-availability">
+          <strong style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); display:block; margin-bottom:0.5rem;">Availability Note</strong>
+          Carla is currently available for advisory engagements and select contract Product Owner roles. If you are a team looking for embedded delivery support alongside research work, reach out directly.
+        </div>
+        <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="https://cal.com/cmlaunchlab/power-hour-strategy-call" target="_blank" class="btn btn-primary">Book a Power Hour</a>
+          <a href="mailto:carla@cmlaunchlab.com" class="btn btn-outline">carla@cmlaunchlab.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-logo">CM Launch Lab</span>
+      <ul class="footer-links">
+        <li><a href="#businesses">For Teams</a></li>
+        <li><a href="#individuals">For Individuals</a></li>
+        <li><a href="mailto:carla@cmlaunchlab.com">carla@cmlaunchlab.com</a></li>
+        <li><a href="https://www.linkedin.com/in/cmlaunchlab/" target="_blank">LinkedIn</a></li>
+      </ul>
+      <span class="footer-copy">© 2026 CM Launch Lab</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
