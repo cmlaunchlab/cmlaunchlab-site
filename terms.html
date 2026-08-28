@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — CM Launch Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:   #1a1a1a;
+      --bg:    #ffffff;
+      --blue:  #1a9fd4;
+      --mid:   #5a5a5a;
+      --soft:  #909090;
+      --rule:  #e5e5e5;
+      --alt:   #f5f6f8;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Figtree', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      border-bottom: 1px solid var(--rule);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      padding: 0 48px;
+    }
+    .nav-logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--blue); }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 72px 48px 120px;
+    }
+    @media (max-width: 600px) {
+      .nav { padding: 0 24px; }
+      .page { padding: 48px 24px 80px; }
+    }
+
+    /* ── HEADER ── */
+    .page-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      display: block;
+      margin-bottom: 16px;
+    }
+    .page-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .page-meta {
+      font-family: 'Figtree', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--soft);
+      margin-bottom: 56px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      margin-bottom: 48px;
+    }
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    p {
+      font-family: 'Figtree', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.85;
+    }
+    p + p { margin-top: 12px; }
+
+    /* ── POLICY CALLOUT ── */
+    .policy-box {
+      background: var(--alt);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 4px 4px 0;
+      padding: 24px 28px;
+      margin: 20px 0;
+    }
+    .policy-box p { font-size: 14px; color: var(--mid); }
+    .policy-box p + p { margin-top: 10px; }
+    .policy-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px 16px;
+      align-items: baseline;
+      margin-top: 8px;
+    }
+    .policy-trigger {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .policy-outcome {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    /* ── DIVIDER ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 40px 0;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 1px solid var(--rule);
+      padding: 32px 48px;
+      text-align: center;
+    }
+    .footer p {
+      font-size: 13px;
+      color: var(--soft);
+    }
+    .footer a { color: var(--blue); text-decoration: none; }
+    @media (max-width: 600px) { .footer { padding: 32px 24px; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="nav-logo">CM<span> Launch Lab</span></a>
+  </nav>
+
+  <main class="page">
+
+    <span class="page-label">Legal</span>
+    <h1 class="page-title">Terms of Service</h1>
+    <p class="page-meta">Effective date: [DATE] &nbsp;·&nbsp; CM Launch Lab by Carla Melara &nbsp;·&nbsp; Questions? <a href="mailto:carla@cmlaunchlab.com" style="color:var(--blue);text-decoration:none;">carla@cmlaunchlab.com</a></p>
+
+    <div class="section">
+      <h2>The Short Version</h2>
+      <p>When you book a service with CM Launch Lab, you're agreeing to these terms. They're written in plain language on purpose. The goal is to make sure we both know what to expect — not to bury you in fine print.</p>
+      <p>CM Launch Lab is a solo consulting practice run by Carla Melara. By booking any service or engaging in any paid work with CM Launch Lab, you agree to what's written here.</p>
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <h2>What CM Launch Lab Does</h2>
+      <p>CM Launch Lab provides product strategy and user feedback consulting services for software founders and product teams. This includes the Focused Feedback Hour (a 60-minute strategy session) and ongoing consulting engagements.</p>
+      <p>The work I do is strategic and advisory in nature. I help you make sense of your user feedback, prioritize your product decisions, and figure out what's worth building next. This is not software development, legal advice, financial advice, or therapy — and it shouldn't be treated as any of those things.</p>
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <h2>Payment</h2>
+      <p>All services are paid in advance. Payment is processed securely through Stripe via Cal.com at the time of booking. You won't be charged until you complete the booking process.</p>
+      <p>The $250 Focused Feedback Hour fee can be applied as a credit toward a longer consulting engagement if you choose to continue working together. That credit is valid for 90 days from the date of your original session and cannot be transferred or exchanged for cash.</p>
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <h2>Cancellation and Rescheduling</h2>
+      <p>I understand that life happens. Here's how cancellations and rescheduling work:</p>
+
+      <div class="policy-box">
+        <div class="policy-row">
+          <span class="policy-trigger">48+ hours' notice</span>
+          <span class="policy-outcome">You can reschedule at no charge. Your booking credit carries forward for 90 days from the original session date.</span>
+        </div>
+        <div class="policy-row">
+          <span class="policy-trigger">Under 48 hours' notice</span>
+          <span class="policy-outcome">A partial refund of $125 will be issued. The remaining $125 is forfeited to cover the reserved time and preparation work.</span>
+        </div>
+        <div class="policy-row">
+          <span class="policy-trigger">No-show</span>
+          <span class="policy-outcome">The full session fee is forfeited. No refund and no rescheduling will be offered.</span>
+        </div>
+        <div class="policy-row">
+          <span class="policy-trigger">If I have to cancel</span>
+          <span class="policy-outcome">I will reschedule at a time that works for you, with no penalties of any kind. Your time matters.</span>
+        </div>
+      </div>
+
+      <p>To reschedule or notify me of a cancellation, email <a href="mailto:carla@cmlaunchlab.com" style="color:var(--blue);text-decoration:none;">carla@cmlaunchlab.com</a> with your booking reference. Cancellation windows are calculated from your scheduled session time, not from when you contact me.</p>
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <h2>What's Included — and What Isn't</h2>
+      <p>Each service has a defined scope. The Focused Feedback Hour is a single 60-minute session focused on your most pressing product or feedback question. Ongoing consulting engagements have their own scope, deliverables, and timelines, which are agreed upon in writing before work begins.</p>
+      <p>What's not included unless we've specifically agreed to it: ongoing revisions outside the engagement, implementation of recommendations, software development, copywriting, or attendance at external meetings.</p>
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <h2>No Guarantee of Results</h2>
+      <p>I will bring my full expertise, attention, and care to every engagement. But I can't guarantee specific outcomes — no consultant honestly can. Business results depend on many factors outside my control, including how recommendations are implemented, market conditions, and your team's capacity.</p>
+      <p>What I can promise is that the work will be honest, thorough, and focused on what's actually useful to you.</p>
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <h2>Confidentiality</h2>
+      <p>Anything you share with me about your product, users, business, or strategy stays confidential. I will not share your information with anyone outside of what's needed to do the work.</p>
+      <p>In return, I ask that you keep the specific frameworks, methods, and materials I use in our work together confidential as well. You're welcome to apply what you learn — just not to reproduce or resell it.</p>
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <h2>Deliverables and Intellectual Property</h2>
+      <p>Any written deliverables I produce for you — summaries, priority frameworks, roadmap recommendations, and similar — belong to you once payment is received in full. Background methods, templates, and tools I bring into the work remain mine.</p>
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <h2>Limitation of Liability</h2>
+      <p>CM Launch Lab's liability for any claim arising out of services provided is limited to the amount you paid for the specific service in question. CM Launch Lab is not liable for indirect, incidental, or consequential damages of any kind.</p>
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <h2>Governing Law</h2>
+      <p>These terms are governed by the laws of the State of <strong>[STATE]</strong>. Any disputes will be resolved in <strong>[STATE]</strong> courts.</p>
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <h2>Changes to These Terms</h2>
+      <p>I may update these terms from time to time. When I do, I'll update the effective date at the top of this page. Continued use of CM Launch Lab services after any change means you've accepted the updated terms.</p>
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <h2>Questions?</h2>
+      <p>If anything here is unclear or you have a question before booking, just email me: <a href="mailto:carla@cmlaunchlab.com" style="color:var(--blue);text-decoration:none;">carla@cmlaunchlab.com</a>. I'd rather answer a question upfront than have confusion later.</p>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="yr"></span> CM Launch Lab by Carla Melara. All rights reserved.</p>
+    <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+  </footer>
+
+</body>
+</html>
